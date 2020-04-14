@@ -40,6 +40,21 @@ public class WriteAndReadDataSet {
         }
 
         // read data from file and print to System.out
-        System.out.println(Storage.readData());
+        String[] data = Storage.readData().split("\n\n");
+        for (int i = 0; i < data.length - 1; i++) {
+            String[] lines = data[i].split("\n");
+            for (int j = 0; j < lines.length; j++) {
+                if (j == 0) {
+                    System.out.println("Name: " + lines[j]);
+                } else if (j == 1) {
+                    System.out.println("Time: " + lines[j]);
+                } else if (j == 2) {
+                    System.out.println("Values: ");
+                    System.out.println(lines[j]);
+                } else {
+                    System.out.println(lines[j]);
+                }
+            }
+        }
     }
 }
